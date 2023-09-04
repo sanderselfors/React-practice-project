@@ -1,9 +1,9 @@
-import ExampleUsersPosts from "../components/example-users-posts";
+import Posts from "../components/Posts";
 
 function HomePage() {
   return (
     <>
-      <ExampleUsersPosts />
+      <Posts />
     </>
   );
 }

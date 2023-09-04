@@ -53,6 +53,22 @@ export function useUser(userId) {
   });
 }
 
+export async function fetchAllUsers() {
+  try {
+    const response = await axios.get(`${BASE_URL}/users`);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+}
+
+export function useAllUsers() {
+  return useQuery({
+    queryKey: ["users"],
+    queryFn: () => fetchAllUsers(),
+  });
+}
+
 export async function login({ username, password }) {
   try {
     const response = await axios.post(`${BASE_URL}/auth/login`, {

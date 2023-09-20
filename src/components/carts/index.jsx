@@ -26,7 +26,7 @@ import CartsUI from "./ui";
  * @requires module:CartsUI
  */
 export default function Carts() {
-  const [status, setStatus] = useState("loading");
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   /**
    * @typedef {object} Data
@@ -44,16 +44,16 @@ export default function Carts() {
         const response = await fetch("https://dummyjson.com/carts");
         const json = await response.json();
         setData(json);
-        setStatus("success");
       } catch (error) {
-        setStatus("error");
         setError(error);
       }
+      setIsLoading(false);
     };
+
     fetchData();
   }, []);
 
-  if (status === "loading") {
+  if (isLoading) {
     return <span>Loading...</span>;
   }
 

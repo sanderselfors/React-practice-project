@@ -26,7 +26,7 @@ import ProductsUI from "./ui";
  * @requires module:productsUI
  */
 export default function Products() {
-  const [status, setStatus] = useState("loading");
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   /**
    * @typedef {object} Data
@@ -42,16 +42,19 @@ export default function Products() {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((result) => {
-        setStatus("success");
+        setIsLoading(false);
         setData(result);
       })
       .catch((err) => {
-        setStatus("error");
+        setIsLoading(false);
         setError(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
-  if (status === "loading") {
+  if (isLoading) {
     return <span>Loading...</span>;
   }
 

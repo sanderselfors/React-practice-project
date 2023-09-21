@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CartsUI from "./ui";
 
 /**
- * @typedef {import('../products/index.jsx').Product} Product
+ * @typedef {import('../example-products/index.jsx').Product} Product
  */
 
 /**

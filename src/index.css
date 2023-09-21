@@ -40,7 +40,9 @@ body {
 }
 
 #root {
+  max-width: 1280px;
   min-height: 100vh;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto 1fr auto;
